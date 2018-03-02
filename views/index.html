@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stick-it</title>
+  
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/stickit.css">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-aria.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/moment.min.js"></script>
+  <script src="js/angular-moment.min.js"></script>
+  <script src="js/stickit.js"></script>
+</head>
+<body ng-app="StickIt" ng-controller="PostController as ctrl">
+  <div class="container">
+    <h1 ng-show="connected === false && posts.length === 0">Waiting for connection...</h1>
+    <h1 ng-show="connected === true && posts.length === 0">Oops, there are no posts! Click '+' to add one.</h1>
+    <div ng-repeat="post in posts" class="post" ng-class="post.color">
+      <div class="time"><span am-time-ago="post.time"></span><span class="delete" ng-click="ctrl.remove(post)">X</span></div>
+      <div class="note">{{post.note}}</div>
+    </div>
+  </div>
+  <div id="reverse" ng-click="ctrl.toggleReverse()">&#8597;</div>
+  <div id="add" ng-class="ctrl.color" ng-click="ctrl.toggleNew()">
+    +
+  </div>
+  <div id="new" ng-show="ctrl.showNew">
+    <form ng-class="ctrl.color" ng-submit="ctrl.addNote()">
+      <div id="colors">
+        <div class="color yellow" ng-click="ctrl.selectColor('yellow')"></div>
+        <div class="color pink" ng-click="ctrl.selectColor('pink')"></div>
+        <div class="color blue" ng-click="ctrl.selectColor('blue')"></div>
+        <span id="close" ng-click="ctrl.toggleNew()">X</span>
+      </div>
+      <textarea ng-class="ctrl.noteText.length >= 120 ? 'max' : ''" required placeholder="Max length: 120 char" name="post" maxlength="120" data-role="none" ng-model="ctrl.noteText"></textarea><br>
+      <input type="submit" value="+Stick-it">
+    </form>
+  </div>
+  <div class="pink" id="alert" ng-show="ctrl.showAlert">
+    <p ng-bind="ctrl.alertMsg"></p>
+    <button ng-click="ctrl.closeAlert()">Okay</button>
+  </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "name": "Stick-it",
+  "version": "1.0.0",
+  "description": "Board for anonymous posting of short, removable messages.",
+  "main": "server.js",
+  "dependencies": {
+    "mongodb": "^2.0.33",
+    "socket.io": "^1.3.5",
+    "express": "^4.12.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "post",
+    "anonymous",
+    "messaging"
+  ],
+  "author": "cantrellnm",
+  "license": "ISC"
+}

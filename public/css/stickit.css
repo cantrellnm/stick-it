@@ -1,0 +1,220 @@
+body {
+  font-size: 112%;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+div:focus, span:focus, input:focus, textarea:focus {
+  outline: solid black 2px; 
+}
+h1 {
+  width: 100%;
+  text-align: center; 
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+.post {
+  position: relative;
+  width: 14rem;
+  height: 14rem;
+  margin: 2rem;
+  background-color: yellow;
+  box-shadow: -2px 3px 10px 1px rgba(0, 0, 0, 0.1);
+  cursor: default;
+}
+.time {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: .3rem; 
+  font-size: .8rem;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.delete, #close {
+  float: right;
+  color: black;
+  cursor: pointer;
+}
+.delete:hover::before, .delete:focus::before {
+  content: "delete "; 
+  border-bottom: solid black 2px;
+}
+#close:hover::before, #close:focus::before {
+  content: "close ";
+  border-bottom: solid black 2px;
+}
+.note {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 2.2rem 1rem .5rem; 
+  font-size: 1.2rem;
+  line-height: 1.4;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  text-overflow: clip;
+  overflow: hidden;
+}
+#reverse {
+  position: fixed;
+  top: 6rem;
+  right: 6rem;
+  width: 6rem;
+  height: 6rem;
+  font-size: 4rem;
+  line-height: 5.5rem;
+  margin: -3rem -3rem 0 0;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  
+}
+#reverse:hover {
+  margin: -4rem -4rem 0 0;
+  width: 8rem;
+  height: 8rem;
+  font-size: 6rem;
+  line-height: 7rem;
+}
+#reverse:hover::before {
+  position: absolute;
+  right: 120%;
+  padding: 0 1rem;
+  content: "reverse";
+  background-color: rgba(255, 255, 255, 0.8);
+}
+#add {
+  position: fixed;
+  bottom: 6rem;
+  right: 6rem;
+  width: 6rem;
+  height: 6rem;
+  margin: 0 -3rem -3rem 0;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 6rem;
+  font-size: 4rem;
+  cursor: pointer;
+  box-shadow: -1px 3px 8px 1px rgba(0, 0, 0, 0.3);
+}
+#add:hover {
+  margin: 0 -4rem -4rem 0;
+  width: 8rem;
+  height: 8rem;
+  font-size: 6rem;
+  line-height: 8rem;
+  box-shadow: -3px 5px 8px 1px rgba(0, 0, 0, 0.4);
+}
+#add:hover::before {
+  position: absolute;
+  right: 120%;
+  padding: 0 1rem;
+  content: "new";
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+#colors {
+  text-align: left;
+  padding: .5rem 0;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.color {
+  display: inline-block;
+  width: 1.2rem;
+  height: 1.2rem;
+  margin: 0 .5rem;
+/*  border: solid black 2px;*/
+  cursor: pointer;
+}
+#close {
+  margin-right: .5rem; 
+}
+
+.yellow {
+  background-color: yellow; 
+}
+.pink {
+  background-color: deeppink;
+}
+.blue {
+  background-color: deepskyblue;
+}
+
+#new {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(128, 128, 128, 0.7);  
+}
+
+#new form {
+  box-sizing: border-box;
+  position: relative;
+  top: 50%;
+  width: 28rem;
+  height: 28rem;
+  margin: -14rem auto 0;
+  text-align: center;
+  padding: 2rem;
+  box-shadow: -3px 5px 8px 1px rgba(0, 0, 0, 0.4);
+}
+
+#new form textarea {
+  box-sizing: border-box;
+  resize: none;
+  background-color: transparent;
+  border: solid black 1px;
+  font-size: 2rem;
+  padding: .5rem;
+  line-height: 1.8;
+  width: 100%;
+  height: 75%;
+  white-space: pre-wrap;
+  text-overflow: clip;
+  overflow: hidden;
+}
+
+#new form textarea.max {
+  background-color: rgba(255, 255, 255, 0.8); 
+}
+
+#new form [type="submit"], button {
+  font-size: 2rem;
+  margin-top: 1rem;
+  padding: .5rem 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#new form [type="submit"]:hover, button:hover {
+  outline: solid black 2px;
+}
+
+#alert {
+  box-sizing: border-box;
+  position: fixed;
+  width: 30rem;
+  height: 14rem;
+  margin: -7rem -15rem;
+  top: 50%;
+  left: 50%;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 2rem;
+  outline: solid black 2px;
+}
